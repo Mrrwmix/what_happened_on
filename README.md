@@ -17,12 +17,30 @@ At first, we used the Live Share extension on VS Code to create an initial skele
 
 ## Initial Site
 
+User inputs a valid date here.
+
+![Initial page](https://github.com/Mrrwmix/project1-ajgcmwmw/blob/master/screenshots/init.png?raw=true)
+
 ## 3 Choices
 
 Choose from NY Times Articles, Seismic Activity, or Asteroids. You can always go back and look at the other options no matter which you choose. 
 
+![Three Choices](https://github.com/Mrrwmix/project1-ajgcmwmw/blob/master/screenshots/choices.png?raw=true)
+
 ### NY Times Articles
+
+View NY Times Articles released on the date entered. 
+
+![NY Times Articles](https://github.com/Mrrwmix/project1-ajgcmwmw/blob/master/screenshots/times.png?raw=true)
 
 ### Seismic Activity
 
+Seismic activity that took place on the given date. 
+
+![Quakes](https://github.com/Mrrwmix/project1-ajgcmwmw/blob/master/screenshots/quakes.png?raw=true)
+
 ### Asteroids
+
+Look at asteroids that passed nearby. 
+
+![Asteroids](https://github.com/Mrrwmix/project1-ajgcmwmw/blob/master/screenshots/asteroids.png?raw=true)
