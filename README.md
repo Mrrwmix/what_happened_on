@@ -1,7 +1,7 @@
 # What Happened On...?
 Created by George Campa, Armando Jimenez, and Matthew Winemiller.
 
-## Deployed website: https://mrrwmix.github.io/project1-ajgcmwmw/
+## Deployed website: https://mrrwmix.github.io/what_happened_on/
 
 ## Description
 
