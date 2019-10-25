@@ -1,4 +1,4 @@
-# project1-ajgcmwmw: What Happened On...?
+# What Happened On...?
 Created by George Campa, Armando Jimenez, and Matthew Winemiller.
 
 ## Deployed website: https://mrrwmix.github.io/project1-ajgcmwmw/
