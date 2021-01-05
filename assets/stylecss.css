@@ -1,29 +1,33 @@
-@font-face {
-  font-family: Acme;
-  src: url("Acme-regular.ttf");
-}
-.cardb, #back, #reset, #submit, .border, #bdayQuestion {
+.cardb,
+#back,
+#reset,
+#submit,
+.border,
+#bdayQuestion {
   border-color: #2be192;
   border-style: solid;
   border-width: 1px;
 }
 
-.cardb:hover, #submit:hover, #back:hover, #reset:hover {
+.cardb:hover,
+#submit:hover,
+#back:hover,
+#reset:hover {
   border-color: #4181ad;
   border-style: solid;
   border-width: 1px;
 }
 
 body {
-  background: url("stardust.png");
-  font-family: Acme, Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  background: url('stardust.png');
+  font-family: Acme, Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   background-repeat: repeat;
   width: 99%;
 }
 
 #bdayQuestion {
-  color: #4A8C67;
-  background: url("../assets/bdayback.png");
+  color: #4a8c67;
+  background: url('../assets/bdayback.png');
   display: block;
   position: absolute;
   border-radius: 100%;
@@ -45,13 +49,13 @@ h1 {
 }
 
 tbody {
-  background-color: #0A0D0C;
+  background-color: #0a0d0c;
   color: #2be192;
   font-size: 17px;
 }
 
 thead {
-  background-color: #0A0D0C;
+  background-color: #0a0d0c;
 }
 
 .mdl-data-table th {
@@ -69,8 +73,12 @@ thead {
   color: #2be192;
 }
 
-#submit, .mdl-card__title-text, .mdl-card__supporting-text, #back, #reset {
-  color: #4A8C67;
+#submit,
+.mdl-card__title-text,
+.mdl-card__supporting-text,
+#back,
+#reset {
+  color: #4a8c67;
 }
 
 #error {
@@ -83,17 +91,21 @@ thead {
 }
 
 #ajaxResults {
-  font-family: "Times New Roman", Times, serif;
+  font-family: 'Times New Roman', Times, serif;
   color: #164059;
   display: none;
 }
 
-#back, #reset, #submit {
-  background: #0A0D0C;
+#back,
+#reset,
+#submit {
+  background: #0a0d0c;
   color: #2be192;
 }
 
-#submit:hover, #back:hover, #reset:hover {
+#submit:hover,
+#back:hover,
+#reset:hover {
   color: #4181ad;
 }
 
@@ -128,16 +140,18 @@ thead {
 }
 
 .demo-card-wide {
-  background: #0A0D0C;
+  background: #0a0d0c;
 }
 
-#TimesCard:hover .card, #usgsCard:hover .card, #nasaCard:hover .card {
+#TimesCard:hover .card,
+#usgsCard:hover .card,
+#nasaCard:hover .card {
   color: #4181ad;
 }
 
 dl {
   color: #5fd291;
-  background-color: #0A0D0C;
+  background-color: #0a0d0c;
 }
 
 dt {

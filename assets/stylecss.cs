@@ -16,7 +16,7 @@
 
 body {
   background: url("stardust.png");
-  font-family: Acme, Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+font-family: Acme, Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   background-repeat: repeat;
   width: 99%;
 }
@@ -125,17 +125,19 @@ dt {
   color: #91c7ec;
 }
 
-@media screen and (max-width: 1200px) {
-  #bdayQuestion {
-    width: 70%;
-    margin-left: 15%;
-  }
+@media screen and(max-width: 1200px)
+{
+# bdayQuestion {
+width: 70 %;
+    margin - left: 15 %;
 }
-@media screen and (max-width: 825px) {
-  #bdayQuestion {
-    width: 97%;
-    margin-left: 0;
-  }
+}
+@media screen and(max-width: 825px)
+{
+# bdayQuestion {
+width: 97 %;
+    margin - left: 0;
+}
 
   .cen {
     float: none;
@@ -146,13 +148,14 @@ dt {
     width: 96%;
   }
 }
-@media screen and (max-width: 555px) {
-  #bdayQuestion {
-    width: 95%;
-    margin-left: 0;
-  }
+@media screen and(max-width: 555px)
+{
+# bdayQuestion {
+width: 95 %;
+    margin - left: 0;
+}
 
-  h1 {
+h1 {
     font-size: 30px;
   }
 
@@ -178,19 +181,21 @@ dt {
     padding-top: 4px;
   }
 }
-@media screen and (max-width: 840px) {
+@media screen and(max-width: 840px)
+{
   .back {
-    width: 50%;
-  }
+    width: 50 %;
+    }
 
   .reset {
-    width: 5%;
-  }
+    width: 5 %;
+    }
 }
-@media screen and (min-width: 840px) {
-  .mdl-grid {
+@media screen and(min-width: 840px)
+{
+  .mdl - grid {
     padding: 8px 0 0 0;
-  }
+    }
 }
 
 /*# sourceMappingURL=stylecss.cs.map */
