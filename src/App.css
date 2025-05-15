@@ -1,0 +1,234 @@
+@import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
+
+:root {
+  --dark-bg: #1a1a1a;
+  --darker-bg: #141414;
+  --card-bg: #242424;
+  --text-primary: #ffffff;
+  --text-secondary: #b3b3b3;
+  --accent-color: #4f9eff;
+  --accent-hover: #3d7fd9;
+  --danger: #ff4f4f;
+  --success: #4fcc4f;
+  --border-color: #333333;
+}
+
+body {
+  background-color: var(--dark-bg);
+  background-image: url('/assets/stardust.png');
+  min-height: 100vh;
+  color: var(--text-primary);
+}
+
+.container {
+  background-color: var(--darker-bg);
+  border-radius: 1rem;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  padding: 2rem;
+  margin-top: 2rem;
+}
+
+h1, h2 {
+  font-family: 'Acme', sans-serif;
+  margin-bottom: 2rem;
+  color: var(--text-primary);
+}
+
+.card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card p {
+  color: var(--text-secondary);
+}
+
+.card.cursor-pointer {
+  cursor: pointer;
+}
+
+.card.cursor-pointer:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.card.cursor-pointer:hover p {
+  color: var(--text-primary);
+}
+
+.card-header {
+  background-color: var(--accent-color);
+  color: var(--text-primary);
+  font-family: 'Acme', sans-serif;
+}
+
+.card-body {
+  color: var(--text-primary);
+}
+
+/* Make sure all paragraphs in cards are visible */
+.card-body p {
+  color: var(--text-secondary);
+  margin-bottom: 0;
+}
+
+.btn {
+  font-family: 'Acme', sans-serif;
+  padding: 0.5rem 2rem;
+}
+
+.btn-primary {
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+}
+
+.btn-primary:hover {
+  background-color: var(--accent-hover);
+  border-color: var(--accent-hover);
+}
+
+.btn-secondary {
+  background-color: var(--darker-bg);
+  border-color: var(--border-color);
+  color: var(--text-primary);
+}
+
+.btn-secondary:hover {
+  background-color: var(--card-bg);
+  border-color: var(--border-color);
+  color: var(--text-primary);
+}
+
+.form-control {
+  background-color: var(--darker-bg);
+  border-color: var(--border-color);
+  color: var(--text-primary);
+  font-size: 1.1rem;
+  padding: 0.75rem;
+}
+
+.form-control:focus {
+  background-color: var(--darker-bg);
+  border-color: var(--accent-color);
+  color: var(--text-primary);
+  box-shadow: 0 0 0 0.25rem rgba(79, 158, 255, 0.25);
+}
+
+/* Ensure all text is readable */
+p, span, div {
+  color: var(--text-primary);
+}
+
+.text-primary {
+  color: var(--accent-color) !important;
+}
+
+.text-danger {
+  color: var(--danger) !important;
+}
+
+.text-success {
+  color: var(--success) !important;
+}
+
+.text-muted {
+  color: var(--text-secondary) !important;
+}
+
+.border-bottom {
+  border-bottom-color: var(--border-color) !important;
+}
+
+.border-bottom:last-child {
+  border-bottom: none !important;
+}
+
+/* Placeholder styling */
+.placeholder-glow .placeholder {
+  background-color: var(--darker-bg);
+}
+
+/* Link styling */
+a {
+  color: var(--accent-color);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+a:hover {
+  color: var(--accent-hover);
+  text-decoration: underline;
+}
+
+/* Alert styling */
+.alert-danger {
+  background-color: rgba(255, 79, 79, 0.1);
+  border-color: rgba(255, 79, 79, 0.2);
+  color: var(--danger);
+}
+
+/* Custom transitions */
+.suggestion-container {
+  transition: opacity 0.6s ease-in-out;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--dark-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
+}
+
+/* Animation keyframes */
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+.read-the-docs {
+  color: var(--text-secondary);
+}
