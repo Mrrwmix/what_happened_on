@@ -1,11 +1,11 @@
-import { Alert, Button, Form } from "react-bootstrap";
+import { Alert, Form } from "react-bootstrap";
 import { useEffect, useState } from "react";
 
 interface DateFormProps {
   onSubmit: (date: string) => void;
 }
 
-const dateSuggestions = [
+const originalSuggestions = [
   "your birthday",
   "your mother's birthday",
   "your father's birthday",
@@ -18,9 +18,12 @@ const dateSuggestions = [
   "your best friend's birthday",
 ];
 
+const dateSuggestions = originalSuggestions;
+
 const DateForm = ({ onSubmit }: DateFormProps) => {
   const [date, setDate] = useState("");
   const [error, setError] = useState(false);
+  const [hasInteracted, setHasInteracted] = useState(false);
   const [currentSuggestion, setCurrentSuggestion] = useState(
     dateSuggestions[0]
   );
@@ -44,14 +47,17 @@ const DateForm = ({ onSubmit }: DateFormProps) => {
     return () => clearInterval(interval);
   }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!date) {
+  const handleDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newDate = e.target.value;
+    setDate(newDate);
+    setHasInteracted(true);
+
+    if (newDate) {
+      setError(false);
+      onSubmit(newDate);
+    } else {
       setError(true);
-      return;
     }
-    setError(false);
-    onSubmit(date);
   };
 
   return (
@@ -61,10 +67,13 @@ const DateForm = ({ onSubmit }: DateFormProps) => {
           <h1 className="mb-4 d-flex flex-column align-items-center">
             <span className="mb-2">Enter</span>
             <span
-              className="text-primary px-3"
+              className="text-primary px-3 py-4"
               style={{
                 opacity: isTransitioning ? 0 : 1,
                 transition: "opacity 0.6s ease-in-out",
+                minWidth: "300px",
+                display: "inline-block",
+                whiteSpace: "nowrap",
               }}
             >
               {currentSuggestion}
@@ -73,32 +82,25 @@ const DateForm = ({ onSubmit }: DateFormProps) => {
         </div>
       </div>
       <div className="row justify-content-center">
-        <Form
-          className="col-12 d-flex flex-column align-items-center"
-          onSubmit={handleSubmit}
-        >
+        <div className="col-12 d-flex flex-column align-items-center">
           <Form.Group className="mb-3">
             <Form.Label className="visually-hidden">Date</Form.Label>
             <Form.Control
               type="date"
               value={date}
-              onChange={(e) => setDate(e.target.value)}
+              onChange={handleDateChange}
               className="text-center mx-auto"
               style={{ maxWidth: "300px" }}
               aria-label="Date"
             />
           </Form.Group>
 
-          {error && (
+          {hasInteracted && error && (
             <Alert variant="danger" className="mb-3">
               Please Enter A Valid Date
             </Alert>
           )}
-
-          <Button variant="primary" type="submit">
-            Submit
-          </Button>
-        </Form>
+        </div>
       </div>
     </div>
   );

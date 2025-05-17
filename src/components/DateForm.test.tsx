@@ -18,30 +18,45 @@ describe("DateForm Component", () => {
     expect(screen.getByText("Enter")).toBeInTheDocument();
     expect(screen.getByText("your birthday")).toBeInTheDocument();
     expect(screen.getByLabelText("Date")).toBeInTheDocument();
-    expect(screen.getByRole("button", { name: /submit/i })).toBeInTheDocument();
   });
 
-  it("shows error alert when submitting without a date", () => {
+  it("maintains consistent width for suggestions", () => {
     render(<DateForm onSubmit={mockOnSubmit} />);
 
-    // Submit the form without entering a date
-    fireEvent.click(screen.getByRole("button", { name: /submit/i }));
+    const suggestionElement = screen.getByText("your birthday");
+    const styles = window.getComputedStyle(suggestionElement);
 
-    // Check if error alert is shown
-    expect(screen.getByText("Please Enter A Valid Date")).toBeInTheDocument();
-    // Verify onSubmit was not called
-    expect(mockOnSubmit).not.toHaveBeenCalled();
+    expect(styles.minWidth).toBe("300px");
+    expect(styles.display).toBe("inline-block");
+    expect(styles.whiteSpace).toBe("nowrap");
   });
 
-  it("calls onSubmit with the selected date when form is submitted", () => {
+  it("shows error when date is cleared", () => {
+    render(<DateForm onSubmit={mockOnSubmit} />);
+
+    const dateInput = screen.getByLabelText("Date");
+
+    // Initially, there should be no error message
+    expect(
+      screen.queryByText("Please Enter A Valid Date")
+    ).not.toBeInTheDocument();
+
+    // Enter a date first
+    fireEvent.change(dateInput, { target: { value: "2024-03-20" } });
+    // Then clear it
+    fireEvent.change(dateInput, { target: { value: "" } });
+
+    expect(screen.getByText("Please Enter A Valid Date")).toBeInTheDocument();
+    expect(mockOnSubmit).toHaveBeenCalledTimes(1);
+  });
+
+  it("calls onSubmit when a valid date is entered", () => {
     render(<DateForm onSubmit={mockOnSubmit} />);
 
     const dateInput = screen.getByLabelText("Date");
     fireEvent.change(dateInput, { target: { value: "2024-03-20" } });
-    fireEvent.click(screen.getByRole("button", { name: /submit/i }));
 
     expect(mockOnSubmit).toHaveBeenCalledWith("2024-03-20");
-    // Error alert should not be shown
     expect(
       screen.queryByText("Please Enter A Valid Date")
     ).not.toBeInTheDocument();
@@ -77,19 +92,25 @@ describe("DateForm Component", () => {
     vi.useRealTimers();
   });
 
-  it("clears error when valid date is entered after error", () => {
+  it("shows error when empty and clears it when valid date is entered", () => {
     render(<DateForm onSubmit={mockOnSubmit} />);
 
-    // Submit without date to trigger error
-    fireEvent.click(screen.getByRole("button", { name: /submit/i }));
+    const dateInput = screen.getByLabelText("Date");
+
+    // Initially, there should be no error message
+    expect(
+      screen.queryByText("Please Enter A Valid Date")
+    ).not.toBeInTheDocument();
+
+    // Enter a valid date first to trigger interaction
+    fireEvent.change(dateInput, { target: { value: "2024-03-20" } });
+
+    // Then clear it to trigger error
+    fireEvent.change(dateInput, { target: { value: "" } });
     expect(screen.getByText("Please Enter A Valid Date")).toBeInTheDocument();
 
-    // Enter a valid date
-    const dateInput = screen.getByLabelText("Date");
+    // Enter a valid date again
     fireEvent.change(dateInput, { target: { value: "2024-03-20" } });
-    fireEvent.click(screen.getByRole("button", { name: /submit/i }));
-
-    // Error should be cleared
     expect(
       screen.queryByText("Please Enter A Valid Date")
     ).not.toBeInTheDocument();

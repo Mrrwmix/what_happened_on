@@ -40,7 +40,9 @@ function App() {
       case "form":
         return <DateForm onSubmit={handleDateSubmit} />;
       case "nav":
-        return <ResultsNav onNavigate={handleNavigate} />;
+        return (
+          <ResultsNav onNavigate={handleNavigate} selectedDate={selectedDate} />
+        );
       case "nytimes":
         return <NYTimes selectedDate={selectedDate} />;
       case "earthquakes":
