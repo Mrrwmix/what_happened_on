@@ -109,7 +109,7 @@ const BritishCarbonIntensity = ({
                 </h3>
                 <p className="mb-2">
                   <strong>Forecast:</strong> {data.intensity.forecast} gCO2/kWh
-                  {data.intensity.actual && (
+                  {data.intensity.actual !== undefined && (
                     <span>
                       {" "}
                       | <strong>Actual:</strong> {data.intensity.actual}{" "}

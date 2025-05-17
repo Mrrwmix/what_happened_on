@@ -74,7 +74,7 @@ function App() {
     }
   };
 
-  return <div className="container py-4">{renderPage()}</div>;
+  return <div className="container py-5 w-100 h-100">{renderPage()}</div>;
 }
 
 export default App;

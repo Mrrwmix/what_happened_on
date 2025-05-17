@@ -18,9 +18,6 @@ const dateSuggestions = [
   "your best friend's birthday",
 ];
 
-// Find the longest suggestion to set the container width
-const maxSuggestionLength = Math.max(...dateSuggestions.map((s) => s.length));
-
 const DateForm = ({ onSubmit }: DateFormProps) => {
   const [date, setDate] = useState("");
   const [error, setError] = useState(false);
@@ -58,47 +55,49 @@ const DateForm = ({ onSubmit }: DateFormProps) => {
   };
 
   return (
-    <div className="text-center">
-      <h1 className="mb-4">
-        Enter{" "}
-        <span
-          className="text-primary suggestion-container"
-          style={{
-            display: "inline-block",
-            width: `${maxSuggestionLength * 0.7}em`, // Approximate width based on character count
-            opacity: isTransitioning ? 0 : 1,
-            transition: "opacity 0.6s ease-in-out",
-            textAlign: "center",
-            verticalAlign: "middle",
-          }}
+    <div className="container justify-content-center align-items-center">
+      <div className="row justify-content-center">
+        <div className="col-12 col-md-8 col-lg-6 text-center">
+          <h1 className="mb-4 d-flex flex-column align-items-center">
+            <span className="mb-2">Enter</span>
+            <span
+              className="text-primary px-3"
+              style={{
+                opacity: isTransitioning ? 0 : 1,
+                transition: "opacity 0.6s ease-in-out",
+              }}
+            >
+              {currentSuggestion}
+            </span>
+          </h1>
+        </div>
+      </div>
+      <div className="row justify-content-center">
+        <Form
+          className="col-12 d-flex flex-column align-items-center"
+          onSubmit={handleSubmit}
         >
-          {currentSuggestion}
-        </span>
-      </h1>
+          <Form.Group className="mb-3">
+            <Form.Control
+              type="date"
+              value={date}
+              onChange={(e) => setDate(e.target.value)}
+              className="text-center mx-auto"
+              style={{ maxWidth: "300px" }}
+            />
+          </Form.Group>
 
-      <Form
-        onSubmit={handleSubmit}
-        className="d-flex flex-column align-items-center"
-      >
-        <Form.Group className="mb-3" style={{ maxWidth: "300px" }}>
-          <Form.Control
-            type="date"
-            value={date}
-            onChange={(e) => setDate(e.target.value)}
-            className="text-center"
-          />
-        </Form.Group>
+          {error && (
+            <Alert variant="danger" className="mb-3">
+              Please Enter A Valid Date
+            </Alert>
+          )}
 
-        {error && (
-          <Alert variant="danger" className="mb-3">
-            Please Enter A Valid Date
-          </Alert>
-        )}
-
-        <Button variant="primary" type="submit">
-          Submit
-        </Button>
-      </Form>
+          <Button variant="primary" type="submit">
+            Submit
+          </Button>
+        </Form>
+      </div>
     </div>
   );
 };
