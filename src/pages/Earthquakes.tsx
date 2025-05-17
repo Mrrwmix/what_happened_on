@@ -7,8 +7,6 @@ import moment from "moment";
 
 interface EarthquakesProps {
   selectedDate: string;
-  onBack: () => void;
-  onReset: () => void;
 }
 
 const LoadingEarthquake = () => (
@@ -35,7 +33,7 @@ const LoadingEarthquake = () => (
   </div>
 );
 
-const Earthquakes = ({ selectedDate, onBack, onReset }: EarthquakesProps) => {
+const Earthquakes = ({ selectedDate }: EarthquakesProps) => {
   const [earthquakes, setEarthquakes] = useState<Earthquake[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -100,15 +98,6 @@ const Earthquakes = ({ selectedDate, onBack, onReset }: EarthquakesProps) => {
           )}
         </Card.Body>
       </Card>
-
-      <div className="d-flex justify-content-center gap-3 mt-4">
-        <button className="btn btn-secondary" onClick={onBack}>
-          Back
-        </button>
-        <button className="btn btn-primary" onClick={onReset}>
-          Reset
-        </button>
-      </div>
     </div>
   );
 };

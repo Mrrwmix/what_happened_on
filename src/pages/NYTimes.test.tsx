@@ -1,5 +1,5 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
-import { fireEvent, render, screen, waitFor } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
 
 import type { Article } from "../services/nytimes";
 import type { Mock } from "vitest";
@@ -16,8 +16,6 @@ vi.mock("../services/nytimes", () => ({
 describe("NYTimes Component", () => {
   const mockProps = {
     selectedDate: "2024-03-20",
-    onBack: vi.fn(),
-    onReset: vi.fn(),
   };
 
   const mockArticle: Article = {
@@ -152,23 +150,5 @@ describe("NYTimes Component", () => {
       const placeholders = screen.queryAllByLabelText("placeholder");
       expect(placeholders).toHaveLength(0);
     });
-  });
-
-  it("calls onBack when Back button is clicked", async () => {
-    (fetchArticles as Mock).mockResolvedValue([mockArticle]);
-
-    render(<NYTimes {...mockProps} />);
-
-    fireEvent.click(screen.getByText("Back"));
-    expect(mockProps.onBack).toHaveBeenCalled();
-  });
-
-  it("calls onReset when Reset button is clicked", async () => {
-    (fetchArticles as Mock).mockResolvedValue([mockArticle]);
-
-    render(<NYTimes {...mockProps} />);
-
-    fireEvent.click(screen.getByText("Reset"));
-    expect(mockProps.onReset).toHaveBeenCalled();
   });
 });

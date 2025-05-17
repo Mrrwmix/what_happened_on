@@ -5,14 +5,13 @@ import ResultsNav from "./ResultsNav";
 
 describe("ResultsNav Component", () => {
   const mockOnNavigate = vi.fn();
-  const mockOnReset = vi.fn();
 
   beforeEach(() => {
     vi.clearAllMocks();
   });
 
   it("renders all navigation cards", () => {
-    render(<ResultsNav onNavigate={mockOnNavigate} onReset={mockOnReset} />);
+    render(<ResultsNav onNavigate={mockOnNavigate} />);
 
     // Verify all cards are rendered
     expect(screen.getByText("NY Times Articles")).toBeInTheDocument();
@@ -38,7 +37,7 @@ describe("ResultsNav Component", () => {
   });
 
   it("navigates to NY Times page when clicking NY Times card", () => {
-    render(<ResultsNav onNavigate={mockOnNavigate} onReset={mockOnReset} />);
+    render(<ResultsNav onNavigate={mockOnNavigate} />);
 
     const card = screen.getByText("NY Times Articles").closest(".card");
     fireEvent.click(card!);
@@ -47,7 +46,7 @@ describe("ResultsNav Component", () => {
   });
 
   it("navigates to Earthquakes page when clicking Seismic Activity card", () => {
-    render(<ResultsNav onNavigate={mockOnNavigate} onReset={mockOnReset} />);
+    render(<ResultsNav onNavigate={mockOnNavigate} />);
 
     const card = screen.getByText("Seismic Activity").closest(".card");
     fireEvent.click(card!);
@@ -56,7 +55,7 @@ describe("ResultsNav Component", () => {
   });
 
   it("navigates to Asteroids page when clicking Asteroid Data card", () => {
-    render(<ResultsNav onNavigate={mockOnNavigate} onReset={mockOnReset} />);
+    render(<ResultsNav onNavigate={mockOnNavigate} />);
 
     const card = screen.getByText("Asteroid Data").closest(".card");
     fireEvent.click(card!);
@@ -65,20 +64,11 @@ describe("ResultsNav Component", () => {
   });
 
   it("navigates to Carbon Intensity page when clicking GB Carbon Intensity card", () => {
-    render(<ResultsNav onNavigate={mockOnNavigate} onReset={mockOnReset} />);
+    render(<ResultsNav onNavigate={mockOnNavigate} />);
 
     const card = screen.getByText("GB Carbon Intensity").closest(".card");
     fireEvent.click(card!);
 
     expect(mockOnNavigate).toHaveBeenCalledWith("carbon-intensity");
-  });
-
-  it("calls onReset when clicking the reset button", () => {
-    render(<ResultsNav onNavigate={mockOnNavigate} onReset={mockOnReset} />);
-
-    const resetButton = screen.getByText("Choose Another Date");
-    fireEvent.click(resetButton);
-
-    expect(mockOnReset).toHaveBeenCalled();
   });
 });

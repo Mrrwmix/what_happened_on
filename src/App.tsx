@@ -6,6 +6,7 @@ import BritishCarbonIntensity from "./pages/BritishCarbonIntensity";
 import DateForm from "./components/DateForm";
 import Earthquakes from "./pages/Earthquakes";
 import NYTimes from "./pages/NYTimes";
+import NavBar from "./components/NavBar";
 import ResultsNav from "./components/ResultsNav";
 import { useState } from "react";
 
@@ -19,6 +20,9 @@ function App() {
   };
 
   const handleNavigate = (page: string) => {
+    if (page === "form") {
+      setSelectedDate("");
+    }
     setCurrentPage(page);
   };
 
@@ -36,45 +40,34 @@ function App() {
       case "form":
         return <DateForm onSubmit={handleDateSubmit} />;
       case "nav":
-        return <ResultsNav onNavigate={handleNavigate} onReset={handleReset} />;
+        return <ResultsNav onNavigate={handleNavigate} />;
       case "nytimes":
-        return (
-          <NYTimes
-            selectedDate={selectedDate}
-            onBack={handleBack}
-            onReset={handleReset}
-          />
-        );
+        return <NYTimes selectedDate={selectedDate} />;
       case "earthquakes":
-        return (
-          <Earthquakes
-            selectedDate={selectedDate}
-            onBack={handleBack}
-            onReset={handleReset}
-          />
-        );
+        return <Earthquakes selectedDate={selectedDate} />;
       case "asteroids":
-        return (
-          <Asteroids
-            selectedDate={selectedDate}
-            onBack={handleBack}
-            onReset={handleReset}
-          />
-        );
+        return <Asteroids selectedDate={selectedDate} />;
       case "carbon-intensity":
-        return (
-          <BritishCarbonIntensity
-            selectedDate={selectedDate}
-            onBack={handleBack}
-            onReset={handleReset}
-          />
-        );
+        return <BritishCarbonIntensity selectedDate={selectedDate} />;
       default:
         return <DateForm onSubmit={handleDateSubmit} />;
     }
   };
 
-  return <div className="container py-5 w-100 h-100">{renderPage()}</div>;
+  const showNavigation = currentPage !== "form";
+  const showBack = currentPage !== "form" && currentPage !== "nav";
+
+  return (
+    <>
+      <NavBar
+        showBack={showBack}
+        showReset={showNavigation}
+        onBack={handleBack}
+        onReset={handleReset}
+      />
+      <div className="container py-3 w-100 h-100">{renderPage()}</div>
+    </>
+  );
 }
 
 export default App;

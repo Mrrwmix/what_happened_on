@@ -78,12 +78,14 @@ const DateForm = ({ onSubmit }: DateFormProps) => {
           onSubmit={handleSubmit}
         >
           <Form.Group className="mb-3">
+            <Form.Label className="visually-hidden">Date</Form.Label>
             <Form.Control
               type="date"
               value={date}
               onChange={(e) => setDate(e.target.value)}
               className="text-center mx-auto"
               style={{ maxWidth: "300px" }}
+              aria-label="Date"
             />
           </Form.Group>
 

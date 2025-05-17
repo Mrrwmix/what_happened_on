@@ -7,8 +7,6 @@ import moment from "moment";
 
 interface AsteroidsProps {
   selectedDate: string;
-  onBack: () => void;
-  onReset: () => void;
 }
 
 const LoadingAsteroid = () => (
@@ -39,7 +37,7 @@ const LoadingAsteroid = () => (
   </div>
 );
 
-const Asteroids = ({ selectedDate, onBack, onReset }: AsteroidsProps) => {
+const Asteroids = ({ selectedDate }: AsteroidsProps) => {
   const [asteroids, setAsteroids] = useState<Asteroid[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -137,15 +135,6 @@ const Asteroids = ({ selectedDate, onBack, onReset }: AsteroidsProps) => {
           )}
         </Card.Body>
       </Card>
-
-      <div className="d-flex justify-content-center gap-3 mt-4">
-        <button className="btn btn-secondary" onClick={onBack}>
-          Back
-        </button>
-        <button className="btn btn-primary" onClick={onReset}>
-          Reset
-        </button>
-      </div>
     </div>
   );
 };

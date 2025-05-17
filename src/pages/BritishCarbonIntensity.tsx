@@ -7,8 +7,6 @@ import moment from "moment";
 
 interface BritishCarbonIntensityProps {
   selectedDate: string;
-  onBack: () => void;
-  onReset: () => void;
 }
 
 const LoadingIntensity = () => (
@@ -37,8 +35,6 @@ const LoadingIntensity = () => (
 
 const BritishCarbonIntensity = ({
   selectedDate,
-  onBack,
-  onReset,
 }: BritishCarbonIntensityProps) => {
   const [intensityData, setIntensityData] = useState<CarbonIntensityData[]>([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -143,15 +139,6 @@ const BritishCarbonIntensity = ({
           )}
         </Card.Body>
       </Card>
-
-      <div className="d-flex justify-content-center gap-3 mt-4">
-        <button className="btn btn-secondary" onClick={onBack}>
-          Back
-        </button>
-        <button className="btn btn-primary" onClick={onReset}>
-          Reset
-        </button>
-      </div>
     </div>
   );
 };

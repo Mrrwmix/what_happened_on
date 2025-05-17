@@ -7,8 +7,6 @@ import moment from "moment";
 
 interface NYTimesProps {
   selectedDate: string;
-  onBack: () => void;
-  onReset: () => void;
 }
 
 const LoadingArticle = () => (
@@ -34,7 +32,7 @@ const LoadingArticle = () => (
   </div>
 );
 
-const NYTimes = ({ selectedDate, onBack, onReset }: NYTimesProps) => {
+const NYTimes = ({ selectedDate }: NYTimesProps) => {
   const [articles, setArticles] = useState<Article[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -92,15 +90,6 @@ const NYTimes = ({ selectedDate, onBack, onReset }: NYTimesProps) => {
           )}
         </Card.Body>
       </Card>
-
-      <div className="d-flex justify-content-center gap-3 mt-4">
-        <button className="btn btn-secondary" onClick={onBack}>
-          Back
-        </button>
-        <button className="btn btn-primary" onClick={onReset}>
-          Reset
-        </button>
-      </div>
     </div>
   );
 };

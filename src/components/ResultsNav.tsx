@@ -1,11 +1,10 @@
-import { Button, Card, Col, Row } from "react-bootstrap";
+import { Card, Col, Row } from "react-bootstrap";
 
 interface ResultsNavProps {
   onNavigate: (page: string) => void;
-  onReset: () => void;
 }
 
-const ResultsNav = ({ onNavigate, onReset }: ResultsNavProps) => {
+const ResultsNav = ({ onNavigate }: ResultsNavProps) => {
   const pages = [
     {
       title: "NY Times Articles",
@@ -31,29 +30,22 @@ const ResultsNav = ({ onNavigate, onReset }: ResultsNavProps) => {
   ];
 
   return (
-    <div>
-      <div className="d-flex justify-content-center mb-4">
-        <Button variant="primary" onClick={onReset}>
-          Choose Another Date
-        </Button>
-      </div>
-      <Row className="g-4">
-        {pages.map((page) => (
-          <Col md={4} key={page.id}>
-            <Card
-              className="h-100 cursor-pointer"
-              onClick={() => onNavigate(page.id)}
-              role="button"
-            >
-              <Card.Header as="h5">{page.title}</Card.Header>
-              <Card.Body>
-                <p className="mb-0">{page.description}</p>
-              </Card.Body>
-            </Card>
-          </Col>
-        ))}
-      </Row>
-    </div>
+    <Row className="g-4">
+      {pages.map((page) => (
+        <Col md={4} key={page.id}>
+          <Card
+            className="h-100 cursor-pointer"
+            onClick={() => onNavigate(page.id)}
+            role="button"
+          >
+            <Card.Header as="h5">{page.title}</Card.Header>
+            <Card.Body>
+              <p className="mb-0">{page.description}</p>
+            </Card.Body>
+          </Card>
+        </Col>
+      ))}
+    </Row>
   );
 };
 
