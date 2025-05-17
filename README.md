@@ -1,46 +1,63 @@
 # What Happened On...?
-Created by George Campa, Armando Jimenez, and Matthew Winemiller.
 
-## Deployed website: https://mrrwmix.github.io/what_happened_on/
+A React TypeScript application that shows interesting events from a specific date, including New York Times articles, seismic activity, and asteroid information.
 
-## Description
+## Features
 
-This website uses jQuery, Sass, Google Material Design Lite, and various APIs to display information about an inputted date. 
+- Search for events by date
+- View New York Times articles from that date
+- See earthquake data from USGS
+- Check asteroid information from NASA
 
-## Design Process
+## Technologies Used
 
-We initially decided to base our API queries on searching for what happened on the user's birthday. Later on, we realized that you could really enter whichever date you'd like. Thus, we renamed the project to "What Happened On...?" The toughest part was finding APIs that worked well with searching for dates. We ended up with 3: The NY Times API, USGS API, and a NASA API. The Giphy API is also included, but it just generates random gifs associated with the previous 3 APIs. 
-  
-The new technologies we used were Material Design Lite and Sass. We were accustomed to using Bootstrap prior to this project, so Material Design Lite ended up feeling extremely limited. We had to manually edit a lot of CSS, so Sass helped with that. 
- 
-At first, we used the Live Share extension on VS Code to create an initial skeleton website. This is so we would know the function of each div that we needed to manipulate with code. After that, each group member was assigned an API. Everyone worked together on styling, and the majority of time was spent doing so. 
+- React 18
+- TypeScript
+- Vite
+- Bootstrap 5
+- React Bootstrap
+- Moment.js
 
-## Initial Site
+## Setup
 
-User inputs a valid date here.
+1. Clone the repository
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Create a `.env` file in the root directory with your API keys:
+   ```
+   VITE_NYT_API_KEY=your_nyt_api_key_here
+   VITE_NASA_API_KEY=your_nasa_api_key_here
+   ```
+   - Get your NYT API key from: https://developer.nytimes.com/
+   - Get your NASA API key from: https://api.nasa.gov/
 
-![Initial page](https://github.com/Mrrwmix/project1-ajgcmwmw/blob/master/screenshots/init.png?raw=true)
+4. Start the development server:
+   ```bash
+   npm run dev
+   ```
 
-## 3 Choices
+## API Information
 
-Choose from NY Times Articles, Seismic Activity, or Asteroids. You can always go back and look at the other options no matter which you choose. 
+The application uses three different APIs:
 
-![Three Choices](https://github.com/Mrrwmix/project1-ajgcmwmw/blob/master/screenshots/choices.png?raw=true)
+1. **New York Times API**: Articles published on the selected date
+2. **USGS Earthquake API**: Seismic activity data
+3. **NASA NEO API**: Near-Earth Object information
 
-### NY Times Articles
+## Project Structure
 
-View NY Times Articles released on the date entered. 
+```
+src/
+  ├── components/
+  │   ├── BirthdayForm.tsx
+  │   └── ResultsView.tsx
+  ├── App.tsx
+  ├── App.css
+  └── main.tsx
+```
 
-![NY Times Articles](https://github.com/Mrrwmix/project1-ajgcmwmw/blob/master/screenshots/times.png?raw=true)
+## Contributing
 
-### Seismic Activity
-
-Seismic activity that took place on the given date. 
-
-![Quakes](https://github.com/Mrrwmix/project1-ajgcmwmw/blob/master/screenshots/quakes.png?raw=true)
-
-### Asteroids
-
-Look at asteroids that passed nearby. 
-
-![Asteroids](https://github.com/Mrrwmix/project1-ajgcmwmw/blob/master/screenshots/asteroids.png?raw=true)
+Feel free to submit issues and enhancement requests!

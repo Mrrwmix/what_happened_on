@@ -1,93 +1,30 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Group Project 1: What Happened On...?</title>
-    <link rel="stylesheet" href="assets/reset.css">
-    <link rel="stylesheet" type="text/css" href="assets/material.css">
-    <link rel="stylesheet" type="text/css" href="assets/stylecss.css">
-
-    <script src="assets/jquery-3.4.1.min.js"></script>
-    <script src="assets/moment.js"></script>
-</head>
-
-<body>
-    <!-- form -->
-    <div class="mdl-grid mdl-typography--text-center" id="bdayQuestion">
-        <div class="mdl-cell mdl-cell--12-col">
-            <h1 id="marup" style="text-shadow: 1px 1px 2px black, 0 0 25px seashell, 0 0 5px slategrey;">Enter</h1>
-            <h1><span id="change">Your Birthday</span><h1>
-        </div>
-        <div class="mdl-cell mdl-cell--12-col">
-            <form id="bdayform">
-                <input class="mdl-textfield__input mdl-typography--text-center border" type="date"
-                    placeholder="Enter A Date" id='bdayForm'>
-            </form>
-        </div>
-        <div class="mdl-cell mdl-cell--12-col">
-            <p id="error">Please Enter A Valid Date</p>
-            <button class="mdl-button" type="submit" id="submit">Submit</button>
-        </div>
-    </div>
-
-    <!-- AJAX part -->
-    <div class="mdl-grid" id="ajaxResults">
-    </div>
-    <!-- cards for each API -->
-    <div class="mdl-grid center-items" id="cards">
-        <div class="mdl-cell mdl-cell--4-col cen">
-            <div class="demo-card-wide mdl-card mdl-shadow--2dp cardb" id="TimesCard">
-                <div class="mdl-card__title">
-                    <h2 class="mdl-card__title-text card">NY Times Articles</h2>
-                </div>
-                <div class="mdl-card__supporting-text card text">
-                    See articles from the New York Times that were published on <span class='theDate'></span> 
-                </div>
-                <div class="mdl-card__actions mdl-card--border" id="nyGif">
-                </div>
-            </div>
-        </div>
-        <div class="mdl-cell mdl-cell--4-col cen">
-            <div class="demo-card-wide mdl-card mdl-shadow--2dp cardb" id="usgsCard">
-                <div class="mdl-card__title">
-                    <h2 class="mdl-card__title-text card">Seismic Activity</h2>
-                </div>
-                <div class="mdl-card__supporting-text card text">
-                    Look at earthquakes and other seismic activity that took place on <span class='theDate'></span> by clicking here. Information provided by the USGS API.
-                </div>
-                    <div class="mdl-card__actions mdl-card--border" id="quakeGif">
-                    </div>
-            </div>
-        </div>
-        <div class="mdl-cell mdl-cell--4-col cen">
-            <div class="demo-card-wide mdl-card mdl-shadow--2dp cardb" id="nasaCard">
-                <div class="mdl-card__title">
-                    <h2 class="mdl-card__title-text card">Asteroids</h2>
-                </div>
-                <div class="mdl-card__supporting-text card text">
-                    Want to know how close some Asteroids were on <span class='theDate'></span>? 
-                    How big they were in diameter, or if we were
-                    even in possible danger?                    
-                </div>
-                <div class="mdl-card__actions mdl-card--border" id="nasaPic">
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- buttons (back and reset) -->
-    <div class="mdl-grid mdl-typography--text-center cen2" id="buttons_backandreset">
-        <div class="mdl-cell mdl-cell--6-col back">
-            <button class="mdl-button" id="back">Back</button>
-        </div>
-        <div class="mdl-cell mdl-cell--6-col reset">
-            <button class="mdl-button" id="reset">Reset</button>
-        </div>
-    </div>
-
-<script src="assets/logic.js"></script>
-</body>
-
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>What Happened On</title>
+    <!-- Start Single Page Apps for GitHub Pages -->
+    <script type="text/javascript">
+      // Single Page Apps for GitHub Pages
+      // MIT License
+      // https://github.com/rafgraph/spa-github-pages
+      (function(l) {
+        if (l.search[1] === '/' ) {
+          var decoded = l.search.slice(1).split('&').map(function(s) { 
+            return s.replace(/~and~/g, '&')
+          }).join('?');
+          window.history.replaceState(null, null,
+              l.pathname.slice(0, -1) + decoded + l.hash
+          );
+        }
+      }(window.location))
+    </script>
+    <!-- End Single Page Apps for GitHub Pages -->
+  </head>
+  <body>
+    <div id="root" class="w-100 h-100"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
 </html>
